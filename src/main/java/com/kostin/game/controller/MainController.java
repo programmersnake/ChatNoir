@@ -52,21 +52,15 @@ public class MainController extends Application {
     @FXML
     void newCircleMouseClicked(MouseEvent event) {
         //Getting number of Click
-        int xNumber;
-        int yNumber = (int) (event.getSceneY() / 50);
-        if ( yNumber % 2 == 0 )
-            xNumber = (int) (event.getSceneX() / 50);
-        else xNumber = (int) ((event.getSceneX() - 25) / 50);
+        userStep( event );
 
-        System.out.println("User step: x="+xNumber+" y="+yNumber);
+        pcStep( event );
+        }
 
-        area.setUserClickAndDeleteOneNode( xNumber, yNumber );
-        ImageView imageView = circles.get( yNumber ).get( xNumber );
-        imageView.setImage( finalImages[1] );
-        imageView.setDisable( true );
-
-        String pcStep = brain.Go( intCatX, intCatY, area );
-        if(pcStep.startsWith( "-" ))
+    private void pcStep(MouseEvent event) {
+        String pcStepString = brain.Go( intCatX, intCatY, area );
+        System.out.println("pcStep="+ pcStepString );
+        if( pcStepString.startsWith( "-" ))
             System.out.println("!!!!!!!!!!!!!!!!!The END!!!!!!!!!!!!!!!!!!");
         else {
             ImageView imageCatView = circles.get( intCatY ).get( intCatX );
@@ -74,8 +68,8 @@ public class MainController extends Application {
             imageCatView.setImage( finalImages[0] );
 
 
-            intCatX = Integer.valueOf( String.valueOf( pcStep.charAt( 1 ) ) );
-            intCatY = Integer.valueOf( String.valueOf( pcStep.charAt( 0 ) ) );
+            intCatX = Integer.valueOf( String.valueOf( pcStepString.charAt( 1 ) ) );
+            intCatY = Integer.valueOf( String.valueOf( pcStepString.charAt( 0 ) ) );
 
             System.out.println(intCatY);
             System.out.println(intCatY);
@@ -84,9 +78,23 @@ public class MainController extends Application {
             imageCatView.setImage( finalImages[2] );
             imageCatView.setDisable( true );
         }
-
     }
 
+    private void userStep(MouseEvent event) {
+        int xNumber;
+        int yNumber = (int) (event.getSceneY() / 50);
+        if ( yNumber % 2 == 0 )
+            xNumber = (int) (event.getSceneX() / 50);
+        else xNumber = (int) ((event.getSceneX() - 25) / 50);
+
+        System.out.println("User step: y="+yNumber+" x="+xNumber);
+
+        System.out.println(area.getNode( xNumber, yNumber ).getName());
+        area.setUserClickAndDeleteOneNode( xNumber, yNumber );
+        ImageView imageView = circles.get( yNumber ).get( xNumber );
+        imageView.setImage( finalImages[1] );
+        imageView.setDisable( true );
+    }
 
 
     public static void main(String[] args) throws IOException {

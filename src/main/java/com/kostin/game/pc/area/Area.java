@@ -2,12 +2,15 @@ package com.kostin.game.pc.area;
 
 import com.kostin.game.Graph.Node;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Area implements AreaInterface {
 
     private Node[][] nodesArea;
+    private List<Node> allAvailableFinallyNodes = new ArrayList<>();
 
     public Area () {
         nodesArea = new Node[12][11];
@@ -15,23 +18,20 @@ public class Area implements AreaInterface {
     }
 
     private void createAllNodes() {
+        System.out.print("[ ");
         for (int i = 0;i<11;i++) {
             for (int j = 0;j<10;j++) {
                 nodesArea[i][j] = new Node( i +String.valueOf( j ), i, j );
-                //nodesArea[i][j].setDistance( 0 );
+
+                if ((i==0)||(j==9)||(j==0)||(i==10))
+                    allAvailableFinallyNodes.add( nodesArea[i][j] );
+
             }
         }
     }
 
     @Override
-    public Set<Node> getAvailableFinallyNodes() {
-        Set<Node> allAvailableFinallyNodes = new HashSet<>();
-
-        for (int i = 0;i<11;i++) {
-            for (int j = 0; j < 10; j++)
-                if ((i==0)||(j==0)||(j==1)||(i==10))
-                    allAvailableFinallyNodes.add( nodesArea[i][j] );
-        }
+    public List<Node> getAvailableFinallyNodes() {
         return allAvailableFinallyNodes;
     }
 
@@ -88,7 +88,12 @@ public class Area implements AreaInterface {
     }
 
     @Override
-    public void setUserClickAndDeleteOneNode(int xNumber, int yNumber) {
+    public void setUserClickAndDeleteOneNode(int yNumber, int xNumber) {
+        //добавить удаление крайних нодов
+        System.out.println("x="+xNumber+" y="+yNumber);
+        if ((xNumber==0)||(yNumber==9)||(yNumber==0)||(xNumber==10))
+            allAvailableFinallyNodes.remove( nodesArea[xNumber][yNumber] );
+
         nodesArea[xNumber][yNumber] = null;
     }
 

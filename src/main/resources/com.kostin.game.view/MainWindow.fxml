@@ -4,6 +4,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.util.ArrayList ?>
+
 <AnchorPane prefHeight="550.0" prefWidth="525.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kostin.game.controller.MainController">
    <children>
       <ImageView fx:id="circle1" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#newCircleMouseClicked" pickOnBounds="true" preserveRatio="true">
@@ -597,6 +599,18 @@
                <fx:reference source="circle30" />
             </ArrayList>
             <ArrayList fx:id="4Arr">
+               <fx:reference source="circle31" />
+               <fx:reference source="circle32" />
+               <fx:reference source="circle33" />
+               <fx:reference source="circle34" />
+               <fx:reference source="circle35" />
+               <fx:reference source="circle36" />
+               <fx:reference source="circle37" />
+               <fx:reference source="circle38" />
+               <fx:reference source="circle39" />
+               <fx:reference source="circle40" />
+            </ArrayList>
+            <ArrayList fx:id="5Arr">
                <fx:reference source="circle41" />
                <fx:reference source="circle42" />
                <fx:reference source="circle43" />
@@ -608,7 +622,7 @@
                <fx:reference source="circle49" />
                <fx:reference source="circle50" />
             </ArrayList>
-            <ArrayList fx:id="5Arr">
+            <ArrayList fx:id="6Arr">
                <fx:reference source="circle51" />
                <fx:reference source="circle52" />
                <fx:reference source="circle53" />
@@ -620,7 +634,7 @@
                <fx:reference source="circle59" />
                <fx:reference source="circle60" />
             </ArrayList>
-            <ArrayList fx:id="6Arr">
+            <ArrayList fx:id="7Arr">
                <fx:reference source="circle61" />
                <fx:reference source="circle62" />
                <fx:reference source="circle63" />
@@ -632,7 +646,7 @@
                <fx:reference source="circle69" />
                <fx:reference source="circle70" />
             </ArrayList>
-            <ArrayList fx:id="7Arr">
+            <ArrayList fx:id="8Arr">
                <fx:reference source="circle71" />
                <fx:reference source="circle72" />
                <fx:reference source="circle73" />
@@ -644,7 +658,7 @@
                <fx:reference source="circle79" />
                <fx:reference source="circle80" />
             </ArrayList>
-            <ArrayList fx:id="8Arr">
+            <ArrayList fx:id="9Arr">
                <fx:reference source="circle81" />
                <fx:reference source="circle82" />
                <fx:reference source="circle83" />
@@ -656,7 +670,7 @@
                <fx:reference source="circle89" />
                <fx:reference source="circle90" />
             </ArrayList>
-            <ArrayList fx:id="9Arr">
+            <ArrayList fx:id="10Arr">
                <fx:reference source="circle91" />
                <fx:reference source="circle92" />
                <fx:reference source="circle93" />
@@ -668,7 +682,7 @@
                <fx:reference source="circle99" />
                <fx:reference source="circle100" />
             </ArrayList>
-            <ArrayList fx:id="10Arr">
+            <ArrayList fx:id="11Arr">
                <fx:reference source="circle101" />
                <fx:reference source="circle102" />
                <fx:reference source="circle103" />

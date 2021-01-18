@@ -1,9 +1,6 @@
 package com.kostin.game.Graph;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Dijkstra {
 
@@ -27,10 +24,11 @@ public class Dijkstra {
                 if(adjacencyPair.getKey()==null) continue;
 
                 Node adjacentNode = adjacencyPair.getKey();
+                Integer edgeWeight = adjacencyPair.getValue();
+
                 if(randomNode==null)
                     randomNode = adjacentNode;
 
-                Integer edgeWeight = adjacencyPair.getValue();
                 if (!settledNodes.contains(adjacentNode)) {
                     LinkedList<Node> tempLinkedList = calculateMinimumDistance(adjacentNode, edgeWeight, currentNode, finallyNode );
                     if(tempLinkedList!=null) {
